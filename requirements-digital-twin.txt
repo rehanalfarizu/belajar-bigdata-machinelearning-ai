@@ -1,0 +1,5 @@
+# Instal setelah requirements.txt aktif. Semua komponen ini opsional untuk notebook lokal.
+simpy>=4,<5
+paho-mqtt>=2,<3
+influxdb-client>=1.40,<2
+plotly>=5.20,<7

@@ -1,0 +1,7 @@
+# Instal setelah requirements.txt aktif.
+torch>=2.2,<3
+transformers>=4.40,<5
+datasets>=2.18,<4
+tokenizers>=0.19,<1
+sentence-transformers>=2.6,<4
+evaluate>=0.4,<1

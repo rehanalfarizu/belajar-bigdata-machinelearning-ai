@@ -1,0 +1,7 @@
+# Instal setelah requirements.txt aktif.
+duckdb>=1.0,<2
+polars>=1.0,<2
+pyspark>=3.5,<4
+sqlglot>=25,<30
+great-expectations>=0.18,<1
+prefect>=2.14,<4
