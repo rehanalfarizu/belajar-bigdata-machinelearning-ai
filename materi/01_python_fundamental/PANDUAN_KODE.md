@@ -298,9 +298,9 @@ print(3 ** 0)    # → 1 (angka pangkat 0 = 1)
 
 ## 4. String — Lebih dari Sekadar Teks
 
-### 4.1 String itu Array Karakter
+### 4.1 String adalah Sequence Unicode yang Immutable
 
-Di Python, string adalah **urutan karakter** yang disimpan berurutan di memori:
+Secara semantic, string Python adalah **sequence Unicode code point** yang immutable dan mendukung indexing. Jangan bergantung pada layout internalnya seperti array mentah. Satu code point juga tidak selalu sama dengan satu karakter visual (grapheme), misalnya emoji gabungan.
 
 ```
 "H e l l o"

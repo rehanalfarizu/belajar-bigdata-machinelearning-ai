@@ -1,6 +1,8 @@
 # Template Penulisan Chapter
 
-File ini adalah acuan wajib untuk semua chapter di folder `materi/`. Tujuannya: supaya antar chapter **konsisten dalam format, nada, dan kedalaman penjelasan** — sehingga pembaca yang sudah kuasai chapter 01 tidak perlu "belajar ulang" cara baca ketika masuk ke chapter 02.
+File ini adalah acuan untuk chapter di folder `materi/`. Tujuannya menjaga konsistensi tanpa memaksa semua topik ke bentuk yang sama. Struktur topik pemula, sistem terdistribusi, simulation, dan research boleh berbeda selama learning outcome, assumptions, experiment, test, dan gate-nya jelas.
+
+Setiap topik idealnya menjawab: sejarah/konteks, masalah, alasan muncul, mental model, teori/matematika, cara kerja internal, implementasi minimal, implementasi library, contoh, eksperimen, kesalahan/anti-pattern, best practice, debugging, latihan/challenge/project, checkpoint, serta hubungan ke Digital Twin. Jangan membuat file hanya untuk memenuhi nama; satu README yang utuh lebih baik daripada enam placeholder.
 
 ## Prinsip Dasar
 
@@ -8,7 +10,7 @@ Penulisan materi di repo ini mengikuti tiga prinsip. Setiap chapter yang ditulis
 
 ## Struktur Per Section (Pola 5-Cell)
 
-Setiap section di notebook mengikuti pola 5 cell berurutan. Pola ini bukan aturan mati — kalau suatu section memang butuh lebih (misalnya section tentang neural network mungkin butuh diagram), boleh tambah cell visual. Tapi urutan logis dan jumlah minimalnya harus terjaga.
+Untuk notebook beginner, pola 5 cell berikut adalah default, bukan syarat mekanis. Section advanced boleh memakai derivasi→implementation→experiment→visualization→evaluation selama urutannya jelas dan cell tetap dapat dijalankan berurutan.
 
 Cell pertama adalah **markdown naratif**. Panjangnya 1-3 paragraf. Isinya pengenalan konsep dengan analogi dunia nyata, penjelasan "kenapa" konsep itu ada, dan apa masalah yang dipecahkan. Tidak boleh ada kode di cell ini. Cell kedua adalah **markdown ajakan**. Satu paragraf pendek yang mengajak pembaca mengetik kode tertentu di cell berikutnya. Ajakan ini harus eksplisit ("Sekarang coba ketik ini"), bukan pasif ("Berikut adalah contoh"). Cell ketiga adalah **code cell**. Kode di sini harus mini, idealnya 3-8 baris, dan harus bisa dijalankan tanpa error ketika cell dieksekusi. Output dari cell ini akan dipakai di cell breakdown, jadi pastikan outputnya informatif. Cell keempat adalah **markdown breakdown**. Satu paragraf yang menjelaskan apa yang terjadi di balik layar ketika kode di cell tiga dijalankan. Cell ini menjawab pertanyaan "kenapa outputnya begitu" dan "apa yang sebenarnya dilakukan Python saat eksekusi baris itu". Cell kelima adalah **code cell modifikasi**. Berisi 1-3 baris kode yang merupakan modifikasi dari kode di cell tiga. Ajakan sebelumnya di cell dua sudah menyebutkan modifikasi ini, jadi cell lima tinggal menjalankan. Setelah cell modifikasi, section ditutup dengan **mini-check refleksi** — 1-2 pertanyaan terbuka (bukan pilihan ganda) yang memancing pembaca berpikir.
 
@@ -30,7 +32,7 @@ Gunakan template ini sebagai titik mulai, lalu sesuaikan. Pembuka section yang b
 
 ## Template untuk README.md (Per Chapter)
 
-README per chapter berfungsi sebagai **navigasi**, bukan textbook. Panjangnya 150-200 baris. Strukturnya: paragraf pembuka yang menjelaskan kenapa chapter ini penting, daftar section dalam bentuk naratif (boleh bullet untuk enumerasi, tapi penjelasannya paragraf), tabel singkat library yang dipakai, prasyarat, dan link ke `praktikum.md` serta `PANDUAN_KODE.md`. README TIDAK boleh menjelaskan sintaksis atau konsep — itu semua tugas notebook. README menjawab tiga pertanyaan saja: "Chapter ini tentang apa?", "Apa yang akan saya kuasai setelah selesai?", "File mana yang harus saya buka duluan?".
+README selalu menjadi entrypoint dan harus menjawab: mengapa chapter penting, prasyarat, outcome, urutan material, gate, serta status implementasi. Jika chapter memiliki `TEORI_MENDALAM.md` dan notebook lengkap, README boleh ringkas dan merujuk keduanya. Jika belum, README harus self-contained dan benar-benar mengajarkan konsep—bukan placeholder. Setiap klaim standard/protocol yang dapat berubah harus merujuk sumber authoritative serta menyatakan scope-nya.
 
 ## Template untuk praktikum.md (Per Chapter)
 
@@ -39,3 +41,12 @@ Praktikum berisi latihan dan tantangan. Format latihan: paragraf naratif yang me
 ## Template untuk PANDUAN_KODE.md (Per Chapter)
 
 PANDUAN_KODE adalah **referensi ringkas**, bukan duplikat notebook. Isinya adalah pattern Pythonic (idiom) yang umum dipakai di chapter itu, plus anti-pattern yang harus dihindari. Untuk setiap pattern: paragraf pendek "kenapa ini ada", kode minimal 3-5 baris yang mengilustrasikan, dan paragraf "kapan dipakai" atau "kapan hindari". Daftar pattern yang masuk PANDUAN_KODE diputuskan per chapter — tidak semua pattern Pythonic relevan untuk chapter pemula, dan tidak semua yang dipakai di chapter lanjut perlu ada di PANDUAN_KODE.
+
+## Quality gate teknis
+
+- Semua code fence berlabel `python` harus valid syntax; contoh yang sengaja salah diberi label `text` dan dijelaskan.
+- Notebook valid JSON, memiliki tujuan/teori/implementasi/eksperimen/visualisasi/latihan/checkpoint, dan dapat dijalankan berurutan setelah dependency resmi dipasang.
+- Domain logic penting dipindahkan ke `src/` dan diuji; notebook menjadi experiment/interface, bukan satu-satunya source of truth.
+- Gunakan relative path, timezone-aware timestamp, explicit unit, seeded randomness, dan temporal split bila relevan.
+- Jangan commit `.DS_Store`, credentials, cache, atau generated model artifact tanpa alasan/versioning yang jelas.
+- Laporkan batas verifikasi: parse statis berbeda dari execution test; simulator berbeda dari validasi aset nyata.

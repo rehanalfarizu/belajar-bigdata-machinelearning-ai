@@ -136,7 +136,7 @@ study.optimize(objective, n_trials=50, show_progress_bar=True)
 
 ## Latihan 5: Ensemble Methods
 
-**5.1.** Voting Classifier: kombinasikan LogReg, KNN, Decision Tree. Bandingkan dengan masing-masing单独的 dan voting ensemble.
+**5.1.** Voting Classifier: kombinasikan LogReg, KNN, Decision Tree. Bandingkan dengan setiap model individual dan voting ensemble.
 ```python
 from sklearn.ensemble import VotingClassifier
 

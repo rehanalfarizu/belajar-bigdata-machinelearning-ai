@@ -39,7 +39,7 @@ Keputusan: eksperimen berikutnya.
 | 7. Big Data engineering | storage, partition, distributed execution, Spark, streaming | batch ETL PySpark + quality checks | pipeline idempotent dan dapat diulang |
 | 8. NLP & generative AI | tokenisasi, embedding, attention, Transformer, RAG | klasifikasi teks + semantic search + RAG kecil | evaluasi retrieval dan jawaban secara terpisah |
 | 9. MLOps & cloud | packaging, API, Docker, registry, CI/CD, monitoring, security | deploy pipeline, logging, drift alert | model dapat diulang, dipantau, dan di-rollback |
-| 10. Digital twin | IoT, state estimation, simulasi, anomaly, safety | simulasi aset + telemetry + what-if | twin dipisahkan dari plant dan memiliki quality/safety guard |
+| 10–17. Digital Twin | synchronization, telemetry, state, simulation, prediction, semantics, optimization, safety, research | project ladder dari tank shadow sampai configurable platform | tiap maturity gate memiliki teori, kode, failure test, uncertainty, dan decision evidence |
 
 ## Fase 0 — Fondasi komputer dan software engineering
 
@@ -75,6 +75,12 @@ Pelajari grain tabel, primary/foreign key, normalisasi, `JOIN`, `GROUP BY`, `HAV
 
 Praktik: buat database DuckDB/SQLite dari tiga CSV, validasi jumlah baris setelah join, hitung cohort/retention dengan window function, lalu cocokkan hasil SQL dengan Pandas.
 
+### Data mining sebagai disiplin
+
+Data mining bukan sinonim memakai classifier. Pelajari KDD sebagai proses discovery dan CRISP-DM sebagai lifecycle problem/data/model/deployment yang iteratif. Topik wajib: frequent-pattern dan association-rule mining, clustering, anomaly/outlier mining, dimensionality reduction, sequential pattern, interpretasi pattern, multiple-testing risk, serta perbedaan pattern menarik dan pengetahuan yang dapat ditindaklanjuti.
+
+Praktik: implementasikan support/confidence/lift pada transaction kecil, bandingkan clustering dengan ground truth yang tidak dipakai saat fitting, dan audit spurious pattern. Hubungkan ke twin melalui operating-mode discovery, fleet segmentation, alarm-pattern mining, dan maintenance sequence—tanpa menganggap korelasi sebagai causal diagnosis.
+
 ## Fase 4–5 — Machine learning
 
 Selalu mulai dari baseline sederhana. Pisahkan train/validation/test; semua transformer yang belajar dari data harus `fit` hanya pada train dan berada di dalam `Pipeline`. Pilih metrik dari biaya kesalahan bisnis. Untuk kelas timpang, accuracy dapat menipu; gunakan precision-recall, calibration, dan threshold tuning.
@@ -82,6 +88,8 @@ Selalu mulai dari baseline sederhana. Pisahkan train/validation/test; semua tran
 Topik teori: bias-variance, regularisasi L1/L2, probabilistic classification, tree impurity, bagging, boosting, calibration, interpretability, missingness mechanism, causal leakage, cross-validation untuk time series, dan uncertainty.
 
 Proyek: churn, fraud, demand forecasting, atau ranking. Laporan wajib memuat baseline, split, feature provenance, eksperimen, error slices, dan batasan.
+
+Time series wajib memakai event order: timestamp, resampling semantics, rolling window, lag/autocorrelation, stationarity, trend/seasonality/decomposition, exponential smoothing/ARIMA overview, temporal ML, sequence model overview, forecasting uncertainty, rolling validation, dan concept drift. Random split tidak sah ketika membuat masa depan bocor.
 
 ## Fase 6 — Deep learning
 
@@ -139,12 +147,37 @@ Model adalah artefak yang bergantung pada kode, data, dependency, konfigurasi, d
 
 Pelajari Docker image layers, registry, CI (lint/test/build), CD (deploy/rollback), secrets manager, least privilege, model monitoring, data/concept drift, alert fatigue, dan retraining approval. Di cloud, pahami object storage, managed database, container service/Kubernetes, IAM, network boundary, cost/quotas, dan disaster recovery.
 
-## Portofolio akhir
+## Fase 10–17 — General-Purpose Digital Twin
+
+Track ini adalah jalur utama tersendiri, bukan lampiran industrial/mining.
+
+| Chapter | Pertanyaan inti | Kode/project evidence |
+|---|---|---|
+| [10 — Fundamental](materi/10_digital_twin/README.md) | Apa itu twin, mengapa muncul, apa beda model/shadow/twin dan maturity? | tested tank core; plant/sensor/twin terpisah |
+| [11 — Telemetry](materi/11_iot_telemetry_connectivity/README.md) | Bagaimana event real-time divalidasi dan diurutkan? | contract, unit conversion, dedup, sequence, quarantine |
+| [12 — State estimation](materi/12_time_series_state_estimation/README.md) | Apa beda observation/state dan bagaimana uncertainty diperbarui? | Kalman dari nol, missing sensor, sensor fusion |
+| [13 — Simulation/hybrid](materi/13_simulation_physics_hybrid/README.md) | Bagaimana simulator diverifikasi/dikalibrasi dan physics digabungkan ML? | tank physics, convergence/calibration/hybrid experiment |
+| [14 — PdM/RUL](materi/14_anomaly_predictive_maintenance_rul/README.md) | Apa beda anomaly/fault/diagnosis/failure dan bagaimana RUL diuji? | streaming residual + end-to-end PdM mini project |
+| [15 — Architecture/semantics/spatial](materi/15_architecture_semantics_spatial/README.md) | Bagaimana twin diproduksikan, diskalakan, dimodelkan sebagai graph/space? | architecture/capacity/schema/graph/GIS exercises |
+| [16 — Optimization/intelligence](materi/16_optimization_intelligent_twin/README.md) | Bagaimana what-if menjadi rekomendasi yang aman? | optimization baseline + command guard + threat model |
+| [17 — Domains/research/capstone](materi/17_domains_research_capstone/README.md) | Bagaimana abstraction ditransfer lintas domain dan diuji ilmiah? | configurable platform specification + acceptance tests |
+
+### Project ladder
+
+1. **Beginner** — simulated temperature sensor dan tank digital shadow.
+2. **Intermediate** — synchronized tank/HVAC/motor, anomaly detector, state estimator.
+3. **Advanced** — multi-sensor predictive maintenance, RUL, dan forecasting twin.
+4. **Professional** — MQTT/Kafka, state/history/model service, dashboard, observability, Docker.
+5. **Expert/Research** — multi-asset Intelligent Digital Twin Platform dengan simulation, optimization, human approval, security/safety, reproducible experiment, dan federation boundary.
+
+Reference code ada di `materi/10_digital_twin/src/digital_twin_lab`; jalankan test sebelum eksperimen. Chapter lanjutan tidak dianggap selesai hanya karena coverage teorinya tersedia: deliverable gate harus benar-benar dibuat.
+
+## Portofolio fondasi Data/AI
 
 Bangun satu sistem end-to-end: ingest data → quality checks → feature pipeline → baseline/model → evaluation → registry → API/batch inference → dashboard metrics → drift alert → rollback. Sertakan diagram arsitektur, threat model, biaya perkiraan, runbook insiden, dan keputusan trade-off.
 
-Untuk jalur industrial/IoT, lanjutkan dengan Digital Twin: model satu aset, schema telemetry, state estimator, residual anomaly, skenario what-if, dan human-approved control. Materi tersedia di `materi/10_digital_twin`.
+Setelah portofolio fondasi lulus, lanjutkan track Digital Twin 10–17. Capstone akhir bersifat configurable untuk tank, motor, HVAC, vehicle, dan production line melalui common abstraction; mining hanya salah satu domain application.
 
 ## Definisi “expert”
 
-Expert bukan hafal semua library. Expert mampu memilih abstraksi yang tepat, mengukur ketidakpastian, menemukan leakage, menjelaskan trade-off latency/accuracy/cost, menguji sistem, dan menolak solusi yang tidak aman atau tidak dapat dipelihara.
+Expert bukan hafal semua library. Expert mampu memilih abstraksi yang tepat, mengukur ketidakpastian, menemukan leakage, menjelaskan trade-off latency/accuracy/cost, menguji sistem, membuat reproducible experiment, merancang failure recovery, dan menolak solusi yang tidak aman atau tidak dapat dipelihara.

@@ -1,166 +1,153 @@
-# Belajar Big Data, Machine Learning & AI
+# Belajar Big Data, Machine Learning, AI, dan Digital Twin
 
-Repository ini adalah kurikulum praktik untuk Python, analisis data, machine learning, deep learning, dan MLOps. Mulai dari [TUTORIAL.md](TUTORIAL.md), lalu ikuti [panduan belajar](STUDY_GUIDE.md) dan checklist di `ROADMAP_TRACKER.txt`.
+Repository ini adalah kurikulum praktik dari programming/data sampai **general-purpose Intelligent Digital Twin**. Mining tersedia sebagai salah satu domain contoh—bukan tujuan tunggal. Ukuran kemajuan bukan jumlah file yang dibaca, melainkan kemampuan menjelaskan teori, menulis kode, menguji failure mode, mengukur uncertainty, dan mempertanggungjawabkan keputusan.
 
----
+Mulai dari [tutorial penggunaan](TUTORIAL.md), baca [panduan belajar berbasis gate](STUDY_GUIDE.md), lalu catat bukti di [roadmap tracker](ROADMAP_TRACKER.txt). Hasil audit dan gap yang masih terbuka ada di [GAP_ANALYSIS.md](GAP_ANALYSIS.md).
 
-## Struktur
+## Struktur aktual
 
-```
-belajar-bigdata-machinelearning-ai/
-├── materi/
-│   ├── 00_math_statistics/       # Matematika, statistik, eksperimen
-│   ├── 01_python_fundamental/   # Python dasar (variabel, loop, fungsi, ekosistem)
-│   ├── 02_data_analysis/        # NumPy, Pandas, Matplotlib, Seaborn, EDA
-│   ├── 03_ml_fundamental/       # ML supervised, unsupervised, evaluasi
-│   ├── 04_ml_advanced/           # Tuning, pipeline, ensemble, imbalanced data
-│   ├── 05_deep_learning/        # Neural network, CNN, RNN/LSTM, transfer learning
-│   ├── 06_mlops_deployment/     # MLflow, Flask/FastAPI, Docker, monitoring
-│   ├── 07_big_data_data_engineering/ # SQL, Spark, streaming, warehouse
-│   ├── 08_nlp_transformers/     # NLP, embedding, Transformer, RAG
-│   ├── 09_ai_systems_cloud/     # reliability, cloud, security, governance
-│   └── 10_digital_twin/         # IoT, simulasi, telemetry, twin, safety
-│
-├── ROADMAP_TRACKER.txt          # Progress tracker sampai jalur Big Data/AI lanjut
-├── STUDY_GUIDE.md               # Urutan belajar, proyek, dan cara problem solving
-└── requirements.txt             # Environment Python yang dapat diulang
-```
-
-Setiap folder level berisi:
-- `README.md`   — Materi teori sangat detail (bukan hanya inti, tapi penjelasan kenapa)
-- `praktikum.md` — Soal latihan per topik
-- `TEORI_MENDALAM.md` — Teori luas: konsep, asumsi, rumus/arsitektur, batasan, dan hubungan ke praktik
-- `TUTORIAL_PENYELESAIAN.md` — Cara berpikir, langkah pengerjaan, verifikasi, dan debugging
-- `SOLUSI_DAN_TEORI_LENGKAP.md` — Teori rinci serta solusi kode untuk konsep dan latihan utama
-- `*.ipynb`     — Notebook Jupyter untuk dikerjakan langsung (tersedia di Level 01–06)
-
-Mulai setiap latihan dari [CARA_MENGERJAKAN_LATIHAN.md](CARA_MENGERJAKAN_LATIHAN.md), lalu buka tutorial penyelesaian di folder level yang sedang dipelajari hanya setelah mencoba sendiri.
-
----
-
-## Roadmap Belajar
-
-```
-Level 0 ─ Matematika, Statistik & Eksperimen
-  │
-Level 1 ─ Python Fundamental
-  │
-Level 2 ─ Data Analysis & SQL
-  │
-Level 3 ─ ML Fundamental
-  │
-Level 4 ─ ML Lanjutan
-  │
-Level 5 ─ Deep Learning
-   │
-Level 6 ─ MLOps & Deployment
-   │
-Level 7 ─ Big Data & Data Engineering
-   │
-Level 8 ─ NLP, Transformer & Generative AI
-   │
-Level 9 ─ AI Systems, Cloud & Governance
-   │
-Level 10 ─ Digital Twin & Industrial AI
+```text
+materi/
+├── 00_math_statistics/                    matematika, statistik, eksperimen
+├── 01_python_fundamental/                 Python dan problem solving
+├── 02_data_analysis/                      NumPy, Pandas, EDA
+├── 03_ml_fundamental/                     supervised/unsupervised/evaluasi
+├── 04_ml_advanced/                        pipeline, tuning, ensemble, imbalance
+├── 05_deep_learning/                      NN, CNN, sequence, transfer learning
+├── 06_mlops_deployment/                   API, model lifecycle, Docker, monitoring
+├── 07_big_data_data_engineering/          SQL, Spark, streaming, warehouse
+├── 08_nlp_transformers/                   NLP, attention, Transformer, RAG
+├── 09_ai_systems_cloud/                   reliability, cloud, security, governance
+├── 10_digital_twin/                       foundation + tested reference code
+├── 11_iot_telemetry_connectivity/         sensor, PLC, MQTT, OPC UA, event semantics
+├── 12_time_series_state_estimation/       temporal validation, Kalman, fusion
+├── 13_simulation_physics_hybrid/          simulation, calibration, hybrid model
+├── 14_anomaly_predictive_maintenance_rul/ anomaly, fault, PdM, RUL
+├── 15_architecture_semantics_spatial/      architecture, ontology/graph, GIS/3D
+├── 16_optimization_intelligent_twin/       optimization, RL, HITL, safety/security
+└── 17_domains_research_capstone/           domains, research, expert platform
 ```
 
-Level 00–09 sekarang memiliki teori dan praktik Markdown. Level 01–06 juga memiliki notebook interaktif. Notebook untuk Level 07–09 dapat ditambahkan setelah dependency opsional dipasang; contoh kode dan latihan sudah disediakan agar pembelajaran tetap dapat dimulai tanpa cluster/cloud.
+Folder `00`–`09` adalah fondasi existing yang dipertahankan. Track `10`–`17` mengubah satu chapter Digital Twin yang sebelumnya ringkas menjadi jalur Early→Research. Nomor folder adalah urutan kurikulum, bukan klaim tingkat keahlian.
 
----
+## Jalur kompetensi dan gate
 
-## Cara Belajar
+```text
+FOUNDATION → DATA → ML → SYSTEM
+→ DIGITAL TWIN FOUNDATION → CONNECTED TWIN
+→ PREDICTIVE TWIN → PRESCRIPTIVE TWIN
+→ INTELLIGENT/FEDERATED TWIN → EXPERT/RESEARCH
+```
 
-### Per Level:
+Setiap gate membutuhkan lima jenis bukti:
 
-1. **Baca `materi/XX_nama/README.md`** — Pahami teori dan konsep (baca pelan-pelan)
-2. **Buka `materi/XX_nama/XX_nama.ipynb`** — Notebook untuk dikerjakan langsung
-3. **Kerjakan `materi/XX_nama/praktikum.md`** — Soal latihan tambahan
-4. **Review** — Pahami setiap baris kode, tidak hanya jalankan
+1. teori yang dapat dijelaskan dengan kata sendiri;
+2. kode inti yang dapat ditulis ulang;
+3. project yang berjalan;
+4. debugging/failure injection yang dapat dianalisis;
+5. checkpoint dan trade-off yang dapat dipertahankan.
 
-### Prinsip:
+Membaca README atau berhasil menjalankan library belum cukup untuk lulus.
 
-- **Ketik ulang** semua kode. Jangan copy-paste.
-- Baca error message sebelum bertanya.
-- Jika tidak paham satu baris: pecah jadi bagian kecil, test satu per satu.
-- Setelah bisa menjalankan, coba modifikasi: "Apa yang terjadi jika...".
+## Apa yang dimaksud Digital Twin di repository ini?
 
----
+Digital Twin adalah representasi virtual beridentitas dari entity/process dunia nyata, disinkronkan pada frequency dan fidelity yang ditetapkan, memakai model untuk memahami atau memprediksi state, serta menghasilkan output yang dapat divalidasi untuk use case tertentu.
 
-## Persiapan Environment
+- 3D model tidak otomatis menjadi twin.
+- Dashboard atau IoT dashboard tidak otomatis menjadi twin.
+- Simulation tanpa koneksi terpelihara ke instance nyata adalah digital model.
+- IoT tidak mutlak bila sinkronisasi manual/batch memang sesuai use case.
+- Feedback ke actuator tidak selalu wajib; jika ada, safety dan authorization meningkat drastis.
+
+Mulai dari [Digital Twin Fundamental](materi/10_digital_twin/README.md).
+
+## Reference implementation yang dapat diuji
+
+Chapter 10 memiliki package kecil tanpa dependency eksternal untuk mengajarkan boundary inti:
+
+```text
+TelemetryEvent → validation/dedup/order → estimated state + uncertainty
+→ residual anomaly → recommendation → safety guard + human approval
+```
+
+Jalankan:
 
 ```bash
-# Buat virtual environment
-python -m venv venv
-source venv/bin/activate   # Mac/Linux
-# venv\Scripts\activate    # Windows
+cd materi/10_digital_twin
+PYTHONPATH=src python -m unittest discover -s tests -v
+PYTHONPATH=src python -m digital_twin_lab.demo --steps 500 --fault-step 300
+```
 
-# Install dependency yang dipakai materi
+Audit link lokal, JSON/sintaks notebook, sintaks Python, dan generated artifact dari root repository:
+
+```bash
+python scripts/audit_repository.py
+```
+
+Kode memisahkan plant ground truth, noisy/missing sensor, estimator, detector, dan command boundary agar leakage terlihat. Ini reference implementation pedagogis, bukan safety controller produksi.
+
+## Persiapan environment
+
+Python 3.11 direkomendasikan.
+
+```bash
+python -m venv .venv
+source .venv/bin/activate          # macOS/Linux
+# .venv\Scripts\activate           # Windows PowerShell
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-
-# Dependency lanjutan dipasang sesuai jalur, tidak harus semuanya
-python -m pip install -r requirements-bigdata.txt
-python -m pip install -r requirements-nlp.txt
-python -m pip install -r requirements-digital-twin.txt
-
-# Daftarkan environment ini sebagai kernel notebook (jalankan sekali)
-python -m ipykernel install --user --name belajar-ai --display-name "Python (belajar-ai)"
-
-# Jalankan notebook
 jupyter lab
 ```
 
-Docker bukan package Python. Untuk latihan container di Level 6, instal Docker Desktop secara terpisah dan pastikan `docker --version` berhasil di terminal.
+Dependency opsional dipasang hanya saat mengambil track-nya:
 
-Di JupyterLab, pilih kernel **Python (belajar-ai)** untuk setiap notebook. Jika `import numpy` gagal padahal sudah instal dependency, hampir pasti notebook sedang memakai kernel Python lain.
+```bash
+python -m pip install -r requirements-bigdata.txt
+python -m pip install -r requirements-nlp.txt
+python -m pip install -r requirements-digital-twin.txt
+```
 
----
+Docker, broker MQTT/Kafka, OPC UA server, dan cloud service bukan package Python; siapkan terpisah saat chapter terkait memerlukannya. Jangan memasukkan credentials ke notebook atau Git.
 
-## Library per Level
+## Cara belajar setiap topik
 
-| Level | Library | Tujuan |
+Gunakan pola berikut meskipun satu chapter belum menyediakan semua dalam file terpisah:
+
+1. sejarah/konteks dan masalah;
+2. alasan konsep muncul dan mental model;
+3. teori, matematika, assumptions;
+4. cara kerja internal;
+5. implementasi minimal dari nol;
+6. implementasi library/framework;
+7. example dan controlled experiment;
+8. common mistakes, anti-pattern, debugging;
+9. latihan, challenge, mini project;
+10. checkpoint dan hubungan ke Digital Twin.
+
+Notebook existing ada pada chapter tertentu, bukan semua folder. Jangan menganggap absennya notebook berarti kode konseptual production-ready; status material dijelaskan di [gap analysis](GAP_ANALYSIS.md).
+
+## Project ladder
+
+| Tahap | Project | Bukti utama |
 |---|---|---|
-| 0 | NumPy, SciPy | Matematika dan statistik |
-| 1 | Python stdlib | Fondasi |
-| 2 | numpy, pandas, matplotlib, seaborn | Data manipulation & visualisasi |
-| 3 | scikit-learn | ML models & evaluasi |
-| 4 | scikit-learn, imbalanced-learn | Advanced ML |
-| 5 | tensorflow, pillow | Deep learning |
-| 6 | mlflow, FastAPI, Flask, joblib | MLOps |
-| 7 | DuckDB, PySpark, Polars | Big Data & data engineering |
-| 8 | PyTorch, Transformers, sentence-transformers | NLP & generative AI |
-| 9 | Docker, cloud SDK, pytest | Sistem produksi & governance |
-| 10 | NumPy, Pandas, SimPy, MQTT | Digital twin & industrial AI |
+| Beginner | simulated temperature sensor, tank shadow | timestamp/unit/quality benar; plant ≠ sensor |
+| Intermediate | synchronized tank/HVAC/motor | estimator, uncertainty, anomaly, delayed/missing data |
+| Advanced | predictive maintenance/RUL/forecast | temporal+asset holdout, calibration, detection delay |
+| Professional | broker + state/history/model API + dashboard | replay, observability, Docker, failure recovery |
+| Expert | configurable Intelligent Digital Twin Platform | multi-asset abstraction, what-if, optimization, approval, safety/security, research evidence |
 
----
+Spesifikasi capstone berada di [chapter 17](materi/17_domains_research_capstone/README.md).
 
-## Dataset yang Digunakan
+## Batas repository saat ini
 
-- **Level 2+**: Iris dataset (`sklearn.datasets.load_iris()` atau `sns.load_dataset('iris')`)
-- **Level 3+**: Breast Cancer, Diabetes (`sklearn.datasets`)
-- **Level 4+**: Titanic dari Kaggle atau data sintetis
-- **Level 5+**: MNIST (`tensorflow.keras.datasets.mnist`)
+Track Digital Twin kini memiliki coverage teori luas dan tested core. Namun repository belum menyediakan broker/cloud deployment end-to-end, database persistence, GIS/3D executable project, full predictive-maintenance notebook, CI, atau capstone platform lengkap. Itu adalah workstream lanjutan yang sengaja dinyatakan terbuka; “expert” hanya diberikan setelah deliverable dan evidence benar-benar dibuat.
 
----
+## Referensi authoritative awal
 
-## Progress Tracker
+- [ISO/IEC 30173 — Digital twin concepts and terminology](https://www.iso.org/standard/81442.html)
+- [ISO 23247-1 — framework for manufacturing](https://www.iso.org/standard/75066.html)
+- [OASIS MQTT 5.0](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html)
+- [OPC Foundation — OPC UA specifications](https://opcfoundation.org/developer-tools/specifications-unified-architecture)
+- [NIST IR 8356 — Digital Twin security and trust](https://csrc.nist.gov/pubs/ir/8356/final)
 
-Gunakan `ROADMAP_TRACKER.txt` untuk mencatat progress belajar.
-
-| Level | Status | Tanggal Selesai |
-|---|---|---|
-| 01 — Python Fundamental | [ ] | |
-| 02 — Data Analysis | [ ] | |
-| 03 — ML Fundamental | [ ] | |
-| 04 — ML Lanjutan | [ ] | |
-| 05 — Deep Learning | [ ] | |
-| 06 — MLOps & Deployment | [ ] | |
-
----
-
-## Tips
-
-- **1–2 jam/hari** lebih baik daripada belajar maraton hanya di akhir pekan.
-- Tulis notes tangan untuk konsep yang sulit.
-- Ajarkan ke orang lain (fake teaching) — ini cara terbaik untuk verifikasi pemahaman.
-- Jika stuck > 15 menit di satu error: istirahat, kembali dengan fresh mind.
+Gunakan relative links untuk navigasi repository dan sumber resmi untuk klaim standard/protocol yang dapat berubah.

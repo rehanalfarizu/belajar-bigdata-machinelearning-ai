@@ -198,7 +198,7 @@ Setiap output = sum(element-wise multiply) dari kernel × patch input
 ```
 Padding 'same':
   → Output sama size dengan input
-  → Tambah 0了一圈 di sekeliling
+  → Tambahkan padding nol di sekeliling input
 
 Stride:
   → Step size kernel saat scan

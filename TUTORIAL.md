@@ -20,7 +20,7 @@ Setelah membaca panduan ini, kamu akan tahu:
 
 ### 1.1 Interpreter vs Compiler
 
-Saat kamu jalankan kode Python, ada **interpreter** yang membaca kode kamu baris-demi-baris:
+Saat kamu menjalankan kode, implementasi Python seperti CPython mem-parse source, mengompilasinya menjadi bytecode, lalu mengeksekusi instruction secara berurutan:
 
 ```python
 # File: hello.py
@@ -31,28 +31,30 @@ print(f"Halo, {nama}!")
 Saat kamu ketik `python3 hello.py`, yang terjadi:
 
 ```
-Langkah 1: Interpreter baca "nama = "Rehan""
+Langkah 1: source diparse dan dikompilasi menjadi bytecode
+
+Langkah 2: Python mengeksekusi assignment `nama = "Rehan"`
           → Python allocate memory, simpan string "Rehan", kasih label "nama"
 
-Langkah 2: Interpreter baca "print(f"Halo, {nama}!")"
+Langkah 3: Python mengeksekusi `print(f"Halo, {nama}!")`
           → Python evaluasi f-string → "Halo, Rehan!"
           → Print ke layar
 
-Langkah 3: Selesai — program exit
+Langkah 4: Selesai — program exit
 ```
 
-**Tidak ada tahap kompilasi.** Setiap baris langsung dijalankan saat dibaca.
+Python memang sering disebut interpreted, tetapi CPython lebih dulu mem-parse dan mengompilasi source menjadi bytecode, lalu Python Virtual Machine mengeksekusinya. Di REPL/notebook proses ini terasa interaktif per cell; pada file, seluruh block/module perlu lolos parsing sebelum statement di dalamnya berjalan.
 
-### 1.2 Dua Jenis Error Python
+### 1.2 Tiga kategori masalah program
 
 | Jenis | Kapan terjadi | Bisa diperbaiki? |
 |---|---|---|
-| **SyntaxError** |Sebelum program jalan — typo syntax | Ya, perbaiki teksnya |
-| **RuntimeError** |Saat program jalan — logical error | Ya, perbaiki logikanya |
-| **Logic Error** | Program jalan tapi hasil salah | Ya, perbaiki algoritmanya |
+| **SyntaxError** | Sebelum program jalan — source tidak dapat diparse | Ya, perbaiki syntax |
+| **Exception saat runtime** | Saat program berjalan, misalnya `IndexError` | Ya, perbaiki input/state/handling |
+| **Logic defect** | Program berjalan tetapi hasil salah | Ya, perbaiki algoritma/asumsi |
 
-**Contoh SyntaxError:**
-```python
+**Contoh sengaja salah (jangan dijalankan sebagai satu blok):**
+```text
 # SALAH:
 if x = 5        # = adalah assignment, bukan comparison!
     print(x)
@@ -62,7 +64,7 @@ if x == 5:      # == adalah comparison
     print(x)
 ```
 
-**Contoh RuntimeError:**
+**Contoh exception saat runtime:**
 ```python
 x = [1, 2, 3]
 print(x[10])    # IndexError: list index out of range
@@ -96,13 +98,13 @@ rata = total / 2        # ← 60/2 = 30 ✗ (salah! tapi tidak ada error message
 # Install Jupyter
 pip install jupyterlab
 
-# Buka Jupyter (jalankan di terminal, arahkan ke folder proyek)
-cd /Users/macbookpro/Documents/belajar-bigdata-machinelearning-ai
+# Buka Jupyter dari root repository
+cd belajar-bigdata-machinelearning-ai
 jupyter lab
 ```
 
 Setelah Jupyter terbuka:
-1. Klik `01_python_fundamental/01_python_fundamental.ipynb`
+1. Klik `materi/01_python_fundamental/praktikum.ipynb`
 2. Klik cell pertama (berwarna biru di kiri)
 3. Tekan `Shift + Enter` untuk menjalankan cell
 4. Lihat output di bawah cell
@@ -260,9 +262,11 @@ if x == 10:
 # if x = 10:    ← SyntaxError!
 ```
 
-### Aturan 4: String menggunakan kutip, bukan petik
+### Aturan 4: Pasangan tanda kutip string harus konsisten
 
-```python
+Contoh berikut sengaja memuat satu baris invalid untuk menunjukkan mismatch:
+
+```text
 nama = "Rehan"     # ✓ — double quote
 nama = 'Rehan'     # ✓ — single quote (sama saja)
 nama = "Rehan'      # ✗ — quote tidak match
@@ -274,7 +278,7 @@ kalimat = "It's a great day"    # ✓ — lebih clean
 
 ### Aturan 5: `print()` untuk melihat hasil
 
-**DI Jupyter, setiap cell yang runs最后一行会自动显示为 output.**
+**Di Jupyter, expression pada baris terakhir cell biasanya otomatis ditampilkan sebagai output.**
 
 ```python
 # Langsung lihat hasil
@@ -362,7 +366,9 @@ print(hasil)               # → None (karena tidak ada return statement)
 
 ### 5.1 Jenis Error yang Paling Sering
 
-```python
+Dua blok pertama sengaja invalid untuk latihan membaca error; jangan dijalankan sebagai satu blok:
+
+```text
 # ══════════════════════════════════════════════
 # ERROR 1: IndentationError
 # ══════════════════════════════════════════════
@@ -376,7 +382,7 @@ if True:
     print("halo")  # ✓
 ```
 
-```python
+```text
 # ══════════════════════════════════════════════
 # ERROR 2: SyntaxError
 # ══════════════════════════════════════════════
@@ -449,7 +455,7 @@ else:
 
 ### 5.2 Cara Baca Traceback Error (Pesan Error Python)
 
-```python
+```text
 # Contoh error:
 Traceback (most recent call last):
   File "script.py", line 5, in <module>
@@ -678,7 +684,7 @@ CODE FAVORIT:
 
 | Yang Harus Kamu Tahu | Detail |
 |---|---|
-| Python itu interpreter | Dijalankan baris-demi-baris, tidak dikompilasi |
+| CPython parse → bytecode → execute | Interaktif bukan berarti source tidak dikompilasi |
 | Indentasi WAJIB 4 spasi | Tidak boleh campur tab dan spasi |
 | `=` adalah assignment | "x = 10" → x menunjuk ke objek 10 |
 | `==` adalah comparison | "x == 10" → cek apakah x sama dengan 10 |
@@ -689,4 +695,4 @@ CODE FAVORIT:
 
 ---
 
-**Lanjut**: Buka `materi/01_python_fundamental/01_python_fundamental.ipynb` — jalankan cell pertama dengan `Shift + Enter`.
+**Lanjut**: Buka `materi/01_python_fundamental/praktikum.ipynb` — jalankan cell pertama dengan `Shift + Enter`.

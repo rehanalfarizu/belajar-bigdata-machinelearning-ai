@@ -4,7 +4,7 @@
 
 Digital twin menyatukan identitas aset, model, telemetry, state, dan keputusan. State adalah kondisi internal yang relevan namun tidak selalu dapat diukur langsung: level, temperatur inti, degradasi, mode operasi, atau remaining useful life. Sensor memberi observation parsial dengan noise, delay, dropout, bias, calibration drift, dan unit yang mungkin salah. Karena itu twin tidak boleh menyamakan satu reading sensor dengan kebenaran aset; ia membuat estimasi berdasarkan model dan observasi berkualitas.
 
-Digital model tidak tersinkron, digital shadow menerima aliran fisik-ke-digital, sedangkan digital twin memiliki feedback digital-ke-fisik yang dikendalikan. Perbedaan ini penting untuk safety: semakin dekat twin pada kontrol fisik, semakin besar tuntutan validasi, authorization, fail-safe, dan human oversight.
+Dalam taxonomy pedagogis yang sering dipakai, digital model tidak tersinkron dan digital shadow menerima aliran physical-to-digital otomatis. Digital Twin menambahkan representasi beridentitas, sinkronisasi, dan model yang fit untuk use case. Feedback digital-to-physical dapat menjadi capability, tetapi bukan syarat universal pada semua definisi/use case. Semakin dekat twin pada kontrol fisik, semakin besar tuntutan validation, authorization, fail-safe, dan human oversight. Lihat `README.md` untuk batas taxonomy serta sumber authoritative.
 
 ## 2. Model fisik, data-driven, dan hybrid
 
@@ -25,3 +25,13 @@ Residual antara observation dan model prediction menunjukkan mismatch, bukan aka
 ## 6. Fleet, lifecycle, dan governance
 
 Fleet twin membandingkan banyak aset untuk benchmark, predictive maintenance, dan parameter transfer, tetapi aset dapat berbeda umur/konfigurasi/lingkungan. Model/twin lifecycle mencakup commissioning, calibration, validation, monitoring, change management, decommissioning, dan data retention. OT security memerlukan network segmentation, asset identity, patch/change procedure, dan incident coordination; availability/safety bisa lebih penting daripada feature baru. Nilai twin diukur dari keputusan lebih baik, downtime/risk turun, dan auditability—bukan semata detail visualisasi.
+
+## 7. Jalur pendalaman
+
+Dokumen ini adalah ringkasan. Pendalaman berurutan tersedia pada chapter 11–17: telemetry/connectivity, time series/state estimation, simulation/hybrid model, anomaly/PdM/RUL, architecture/semantics/spatial, optimization/intelligent safety, lalu domains/research/capstone. Implementasi yang diuji berada di `src/digital_twin_lab`.
+
+## Referensi lanjutan
+
+- [ISO/IEC 30173](https://www.iso.org/standard/81442.html)
+- [Digital Twin Consortium definition](https://www.digitaltwinconsortium.org/initiatives/the-definition-of-a-digital-twin/)
+- [NIST IR 8356](https://csrc.nist.gov/pubs/ir/8356/final)

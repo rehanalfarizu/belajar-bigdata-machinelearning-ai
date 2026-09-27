@@ -1,5 +1,7 @@
 # Panduan Kode — Level 10 Digital Twin
 
+Snippet di bawah adalah pengantar. Versi reusable dan unit-tested berada di [`src/digital_twin_lab`](src/digital_twin_lab); gunakan itu untuk eksperimen lintas chapter 11–17.
+
 ## 1. Kontrak event telemetry
 
 Gunakan schema eksplisit sejak awal. Unit dan quality flag bukan aksesori; keduanya menentukan apakah data aman dipakai.
@@ -61,3 +63,13 @@ Residual besar bisa berupa sensor bias, unit salah, delay event, parameter fisik
 - Menghitung threshold dari seluruh data termasuk periode fault tanpa label.
 - Menghapus raw telemetry sehingga hasil twin tidak dapat diaudit.
 - Memakai random split untuk forecast/anomaly temporal.
+
+## 5. Jalankan reference implementation
+
+```bash
+cd materi/10_digital_twin
+PYTHONPATH=src python -m unittest discover -s tests -v
+PYTHONPATH=src python -m digital_twin_lab.demo --steps 500 --fault-step 300
+```
+
+Test mencakup canonical unit, stale/duplicate/out-of-order event, uncertainty saat sensor hilang, multi-sensor fusion, reproducibility simulator, fault detection, safety envelope, dan human approval.

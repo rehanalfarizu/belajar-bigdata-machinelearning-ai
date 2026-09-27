@@ -3,6 +3,12 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# OS metadata and generated learning artifacts
+.DS_Store
+artifacts/
+model_*.pkl
+model_*.joblib
+
 # C extensions
 *.so
 

@@ -25,3 +25,13 @@ Tutorial per level:
 - [08 NLP & Transformer](materi/08_nlp_transformers/TUTORIAL_PENYELESAIAN.md)
 - [09 AI Systems & Cloud](materi/09_ai_systems_cloud/TUTORIAL_PENYELESAIAN.md)
 - [10 Digital Twin](materi/10_digital_twin/TUTORIAL_PENYELESAIAN.md)
+
+Track Digital Twin lanjutan memakai README chapter sebagai panduan teori, praktikum, dan gate:
+
+- [11 IoT, Telemetry, Connectivity](materi/11_iot_telemetry_connectivity/README.md)
+- [12 Time Series & State Estimation](materi/12_time_series_state_estimation/README.md)
+- [13 Simulation, Physics & Hybrid](materi/13_simulation_physics_hybrid/README.md)
+- [14 Anomaly, Predictive Maintenance & RUL](materi/14_anomaly_predictive_maintenance_rul/README.md)
+- [15 Architecture, Semantics & Spatial](materi/15_architecture_semantics_spatial/README.md)
+- [16 Optimization & Intelligent Twin](materi/16_optimization_intelligent_twin/README.md)
+- [17 Domains, Research & Capstone](materi/17_domains_research_capstone/README.md)

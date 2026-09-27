@@ -23,3 +23,13 @@ Simulasikan tiga skenario inflow: normal, tinggi, dan pompa mati. Buat rekomenda
 ## Tantangan proyek
 
 Pilih satu aset nyata: motor, panel surya, HVAC, conveyor, gudang dingin, atau armada kendaraan. Buat asset model, schema telemetry, quality rules, state twin, satu what-if, satu alarm, dashboard/plot, dan dokumen safety. Jelaskan data mana simulasi dan data mana observasi nyata.
+
+## Verifikasi otomatis
+
+Sebelum challenge, jalankan test reference implementation dari folder ini:
+
+```bash
+PYTHONPATH=src python -m unittest discover -s tests -v
+```
+
+Tambahkan minimal satu test baru untuk failure mode yang kamu masukkan. Setelah chapter ini, lanjutkan ke `../11_iot_telemetry_connectivity` dan gunakan gate pada `../../ROADMAP_TRACKER.txt`.

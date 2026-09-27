@@ -272,7 +272,7 @@ print(f"Mean:   {scores.mean():.3f} ± {scores.std():.3f}")
 | Regresi R² | `'r2'` |
 | Regresi MAE | `'neg_mean_absolute_error'` |
 
-`'neg_*'` artinya skor dinegasikan karena sklearn惯例: lebih besar = lebih baik. Untuk dapat MSE/MAE positif, cukup negasikan.
+`'neg_*'` artinya skor dinegasikan karena konvensi scikit-learn: skor lebih besar dianggap lebih baik. Untuk mendapatkan MSE/MAE positif, negasikan kembali hasilnya.
 
 ### 6.3 stratified split wajib untuk klasifikasi
 

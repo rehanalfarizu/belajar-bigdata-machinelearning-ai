@@ -1,6 +1,6 @@
 # Praktikum — Level 5: Deep Learning
 
-> **Instruksi**: Ketik ulang setiap kode. Jangan copy-paste. Pastikan GPU available (`nvidia-smi` atau `tf.config.list_physical_devices('GPU')`). Jika tidak ada GPU, training akan lambat — tetap bisa试验 tapi预期waktu lebih lama.
+> **Instruksi**: Ketik ulang setiap kode. Jangan copy-paste. Periksa ketersediaan GPU (`nvidia-smi` atau `tf.config.list_physical_devices('GPU')`). Jika tidak ada GPU, training tetap dapat dicoba tetapi perkirakan waktu yang lebih lama.
 > **Waktu**: ~8–10 jam praktikum
 
 ---
@@ -317,7 +317,7 @@ print(f"Number of devices: {strategy.num_replicas_in_sync}")
 
 **Tantangan: End-to-End Deep Learning Pipeline**
 
-Unduh dataset RPS: https://www.kaggle.com/datasets/dat判定files/rock-paper-scissors-dataset
+Gunakan dataset RPS dari [katalog resmi TensorFlow Datasets](https://www.tensorflow.org/datasets/catalog/rock_paper_scissors). Unduhan sekitar 220 MiB; catat versi dan split yang dipakai.
 
 ### Langkah:
 
