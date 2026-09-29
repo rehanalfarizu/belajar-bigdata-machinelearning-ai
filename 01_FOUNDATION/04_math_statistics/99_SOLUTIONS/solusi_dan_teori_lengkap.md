@@ -1,4 +1,4 @@
-# Teori dan Solusi Lengkap — Level 00
+# Teori dan Solusi — Math & Statistics
 
 ## 1. Mengapa matematika muncul di ML?
 

@@ -1,39 +1,51 @@
 # Phase 1 — Foundation
 
-## WHY
+Phase ini adalah empat minggu pertama untuk membangun mental model komputer, kemampuan menulis Python, kebiasaan engineering, dan bahasa matematika untuk data/ML.
 
-Model dan sistem yang baik tetap gagal bila engineer tidak memahami komputer, bahasa pemrograman, numerical behavior, atau uncertainty. Fase ini membangun dasar tersebut.
+## Mulai dari mana?
 
-## LEARN
-
-File system, process, network, Git, Python dasar dan profesional, testing, packaging, aljabar linear, kalkulus, probabilitas, dan statistik.
-
-## ORDER
+Jika benar-benar pemula, mulai dari [Computer Fundamentals](01_computer_fundamentals/README.md). Jika sudah pernah memakai Python, tetap kerjakan checkpoint setiap chapter; lanjut hanya bila bisa menunjukkan evidence, bukan karena istilahnya terasa familiar.
 
 ```text
-01 Computer Fundamentals
-        ↓
-02 Python Fundamental
-        ↓
-03 Python Professional
-        ↓
-04 Math & Statistics
-        ↓
-MONTH 1 CAPSTONE
+START
+  ↓
+01 Computer Fundamentals      Week 1
+  ↓
+02 Python Fundamental         Week 2
+  ↓
+03 Python Professional        Week 3
+  ↓
+04 Math & Statistics          Week 4
+  ↓
+Month 1 Sensor Simulator
+  ↓
+PHASE 1 CHECKPOINT → Phase 2
 ```
 
-## OUTPUT
+## Kontrak belajar
 
-CLI/package Python modular dengan validasi, logging, dan test; sensor simulator dengan timestamp/unit/quality; penjelasan numerical uncertainty dasar.
+Baca [Learning Protocol](LEARNING_PROTOCOL.md) dan [Standar Praktikum](PRAKTIKUM_STANDARD.md) sekali sebelum mulai. Pada setiap eksperimen: prediksi hasil, jalankan, amati, lalu jelaskan. Simpan bukti pada journal dan jangan membuka `99_SOLUTIONS` sebelum mencoba minimal 20–30 menit.
 
-## GATE
+## Chapter map
 
-Lanjut bila dapat membaca traceback, mengelola environment/Git, memisahkan I/O dari domain logic, menulis unit test, dan menjelaskan gradient, variance, serta uncertainty dengan contoh.
+| Week | Chapter | Pertanyaan inti | Deliverable |
+|---|---|---|---|
+| 1 | [Computer Fundamentals](01_computer_fundamentals/README.md) | Apa yang sebenarnya terjadi ketika program, file, network, dan Git dipakai? | `system-check` report dan debugging evidence |
+| 2 | [Python Fundamental](02_python_fundamental/README.md) | Bagaimana Python mengeksekusi data, keputusan, pengulangan, fungsi, file, dan modul? | small CLI yang ditulis tanpa copy-paste |
+| 3 | [Python Professional](03_python_professional/README.md) | Bagaimana mengubah script menjadi package yang dapat diuji dan dioperasikan? | package sensor dengan test/log/config |
+| 4 | [Math & Statistics](04_math_statistics/README.md) | Bagaimana merepresentasikan data, perubahan, uncertainty, dan evidence? | uncertainty analysis dan experiment report |
 
-## PROJECT
+## Definition of done
 
-[Month 1 — Python Engineering](../06_PROJECTS/month_01_python_engineering/README.md).
+Phase 1 lulus bila kamu dapat:
 
-## NEXT
+- menjelaskan program vs process, memory, path/working directory, IP/port/HTTP/API, dan Git dengan kata sendiri;
+- menulis Python kecil dari file kosong, menelusuri state, serta membaca traceback;
+- membuat module/package, test, logging, configuration, dan menjelaskan concurrency dasar;
+- melakukan perhitungan manual dan Python untuk vector/matrix, gradient, probability, dan statistik dasar;
+- menyelesaikan [Month 1 Sensor Simulator](../06_PROJECTS/month_01_python_engineering/README.md);
+- menyelesaikan reasoning challenge dan menunjukkan project, tests, debugging evidence, checkpoint, serta tanggal pada [progress tracker](../PROGRESS_TRACKER.md).
 
-[Phase 2 — Data and Machine Learning](../02_DATA_AND_MACHINE_LEARNING/README.md).
+## Setelah selesai
+
+Lanjut ke [Phase 2 — Data and Machine Learning](../02_DATA_AND_MACHINE_LEARNING/README.md). Jangan lanjut bila hanya bisa menjalankan contoh tetapi belum dapat menjelaskan keputusan dan failure-nya.

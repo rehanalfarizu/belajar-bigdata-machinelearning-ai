@@ -1,4 +1,4 @@
-# Teori dan Solusi Lengkap — Level 01 Python
+# Teori dan Solusi — Python Fundamental
 
 ## 1. Model mental Python
 

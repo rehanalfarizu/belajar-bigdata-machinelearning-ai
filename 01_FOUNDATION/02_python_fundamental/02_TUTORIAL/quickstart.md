@@ -1,4 +1,4 @@
-# Quick Start — Chapter 01
+# Quick Start — Python Fundamental
 
 File ini memandumu menyiapkan environment Python dari nol. Kalau kamu sudah pernah install Python dan Jupyter sebelumnya, sebagian langkah ini bisa dilewati. Tapi kalau ini pertama kalinya, ikuti saja urutannya. Total waktu setup sekitar 15 sampai 30 menit.
 
@@ -22,7 +22,7 @@ Di terminal yang sama, ketik `jupyter --version`. Kalau muncul daftar versi untu
 
 Navigasi ke root repository lewat terminal, aktifkan environment, lalu ketik `jupyter lab`. Dari file browser, buka `01_FOUNDATION/02_python_fundamental/04_LABS/praktikum.ipynb`.
 
-Tunggu beberapa detik. Browser akan terbuka otomatis menampilkan daftar file di folder itu. Klik `01_python_fundamental.ipynb` untuk membuka notebook utama chapter ini. Tampilan Jupyter memang terasa ramai di awal — ada toolbar di atas, sidebar di kiri, dan deretan cell di tengah. Itu normal.
+Tunggu beberapa detik. Browser akan terbuka menampilkan file repository. Buka [`04_LABS/praktikum.ipynb`](../04_LABS/praktikum.ipynb). Tampilan Jupyter memang terasa ramai di awal—toolbar di atas, sidebar di kiri, dan deretan cell di tengah. Itu normal.
 
 ## Cara Kerja Notebook
 

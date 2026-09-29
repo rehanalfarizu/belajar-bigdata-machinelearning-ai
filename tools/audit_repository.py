@@ -45,6 +45,26 @@ REQUIRED_ROOT_PATHS = (
     "tools",
     ".ai_context",
 )
+REQUIRED_LAB_SECTIONS = (
+    "## 1. TUJUAN",
+    "## 2. PREREQUISITE",
+    "## 3. SETUP",
+    "## 4. PREDICTION BEFORE RUN",
+    "## 5. LANGKAH PRAKTIKUM",
+    "## 6. OBSERVATION",
+    "## 7. WHY",
+    "## 8. MODIFICATION",
+    "## 9. FAILURE EXPERIMENT",
+    "## 10. DEBUGGING",
+    "## 11. WORKPLACE CONNECTION",
+    "## 12. CHECKPOINT",
+)
+PHASE_ONE_LAB_COUNTS = {
+    "01_computer_fundamentals": 6,
+    "02_python_fundamental": 10,
+    "03_python_professional": 13,
+    "04_math_statistics": 11,
+}
 
 
 def markdown_issues() -> list[str]:
@@ -135,6 +155,36 @@ def generated_artifact_issues() -> list[str]:
     return issues
 
 
+def lab_contract_issues() -> list[str]:
+    issues: list[str] = []
+    foundation = ROOT / "01_FOUNDATION"
+    for chapter_name, expected_count in PHASE_ONE_LAB_COUNTS.items():
+        lab_dir = foundation / chapter_name / "04_LABS"
+        guides = sorted(lab_dir.glob("[0-9][0-9]_*.md"))
+        if len(guides) != expected_count:
+            issues.append(
+                f"{chapter_name}: expected {expected_count} lab guides, "
+                f"found {len(guides)}"
+            )
+        for guide in guides:
+            content = guide.read_text(encoding="utf-8")
+            positions = [content.find(section) for section in REQUIRED_LAB_SECTIONS]
+            missing = [
+                section
+                for section, position in zip(REQUIRED_LAB_SECTIONS, positions)
+                if position == -1
+            ]
+            if missing:
+                issues.append(
+                    f"{guide.relative_to(ROOT)} missing: {', '.join(missing)}"
+                )
+            elif positions != sorted(positions):
+                issues.append(
+                    f"{guide.relative_to(ROOT)} has lab sections out of order"
+                )
+    return issues
+
+
 def structure_issues() -> list[str]:
     issues: list[str] = []
     if (ROOT / "materi").exists():
@@ -181,6 +231,7 @@ def main() -> int:
         "markdown": markdown_issues(),
         "notebook": notebook_issues(),
         "python": python_issues(),
+        "lab contract": lab_contract_issues(),
         "artifact": generated_artifact_issues(),
     }
     total = sum(len(issues) for issues in issue_groups.values())

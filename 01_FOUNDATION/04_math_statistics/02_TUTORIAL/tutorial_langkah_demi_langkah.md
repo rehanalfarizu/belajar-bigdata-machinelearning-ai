@@ -1,4 +1,4 @@
-# Tutorial Penyelesaian — Level 00
+# Tutorial Perhitungan — Math & Statistics
 
 ## Linear algebra: selalu mulai dari shape
 

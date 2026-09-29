@@ -1,11 +1,14 @@
-# Konsep Dasar Komputer untuk Engineer
+# Peta Konsep Computer Fundamentals
 
-Program berjalan sebagai **process** dengan ruang memory dan resource sendiri. **Thread** adalah alur eksekusi di dalam process; concurrency tidak otomatis berarti parallel. Sistem operasi menjembatani program dengan CPU, memory, filesystem, network, clock, dan device.
+File ini dipertahankan sebagai entrypoint kompatibel. Materi tidak lagi diringkas dalam satu halaman. Mulai dari [Lesson 1 — Program, Process, CPU, Memory](01_program_process_cpu_memory.md), lalu ikuti urutan pada [README chapter](../README.md).
 
-Path absolut dimulai dari root sistem; path relatif ditafsirkan dari working directory. Nama file yang benar belum cukup bila process tidak punya permission atau working directory berbeda. Environment variable adalah input proses, bukan tempat menyimpan secret di source control.
+```text
+source file
+  → process memakai CPU/memory
+  → process membaca file dan environment
+  → process berkomunikasi melalui network/protocol
+  → perubahan source dilacak Git
+  → failure didiagnosis dengan debugging loop
+```
 
-Network stack mengirim bytes antar-host. DNS menerjemahkan nama, TCP menyediakan ordered byte stream, sedangkan HTTP memberi struktur request/response di atas transport. JSON adalah serialization format; ia tidak menjamin schema, unit, timezone, atau semantic meaning. Timeout, retry, idempotency, dan partial failure harus dianggap normal.
-
-Git menyimpan snapshot dan graph commit. Working tree, staging area, local history, dan remote adalah state berbeda. `status`, `diff`, dan `log` harus dibaca sebelum perubahan besar. Konflik bukan error Git; itu permintaan keputusan manusia tentang intent yang bertabrakan.
-
-Mental model debugging: observasi gejala → buat hipotesis → ukur state → ubah satu variabel → verifikasi. Hindari mengganti dependency atau path secara acak sebelum mengetahui process, environment, dan file yang sebenarnya dipakai.
+Tujuan akhirnya bukan menghafal istilah, melainkan dapat menjawab: “state apa yang sedang dipakai process ini, boundary mana yang gagal, dan evidence apa yang membuktikannya?”

@@ -1,21 +1,37 @@
-# Praktikum Level 00
+# Exercises — Math & Statistics
 
-## Latihan 1 — Linear algebra dari nol
+Untuk setiap soal: gambar/intuisi → hitung manual → formula → Python → interpretasi → assumptions.
 
-Buat `X` berukuran `(5, 3)` dan `w` berukuran `(3,)`. Hitung `X @ w` tanpa loop, lalu verifikasi satu baris secara manual. Tambahkan bias dan jelaskan shape hasilnya.
+## Level 1 — Recall dan manual
 
-## Latihan 2 — Gradient descent
+1. Tambah vectors, hitung dot product dan L2 norm.
+2. Kalikan matrix 2×2 dengan vector dan prediksi shape.
+3. Hitung finite-difference slope dan derivative sederhana.
+4. Hitung probability table, expectation, dan variance discrete.
+5. Hitung sample mean dan sample variance.
 
-Buat data `y = 4x - 2 + noise`. Implementasikan parameter `w` dan `b`, MSE, gradient, serta loop 300 epoch. Plot loss. Ulangi dengan learning rate 1.0 dan 0.000001; jelaskan divergensi dan kelambatan.
+## Level 2 — Apply
 
-## Latihan 3 — Sampling
+1. Proyeksikan vector ke unit direction.
+2. Jalankan gradient descent dengan tiga learning rates.
+3. Hitung Bayes melalui count table untuk rare failure.
+4. Buat confidence interval approximate dan nyatakan assumptions.
+5. Hitung correlation/regression slope pada data kecil.
 
-Ambil 1.000 sampel dari distribusi normal. Ulangi 1.000 kali pengambilan mean berukuran 30. Plot distribusi mean dan bandingkan standard deviation-nya dengan `sigma / sqrt(n)`.
+## Level 3 — Analyze
 
-## Latihan 4 — Bootstrap
+1. Temukan shape/unit mismatch.
+2. Jelaskan PCA leakage dan scaling sensitivity.
+3. Diagnose gradient divergence.
+4. Tunjukkan base-rate fallacy.
+5. Bedakan sampling variance dari selection bias.
 
-Dari satu array pendapatan yang skewed, ambil bootstrap sample, hitung median setiap sample, dan laporkan interval percentile 95%. Jelaskan mengapa median lebih stabil daripada mean terhadap outlier.
+## Level 4 — Design
 
-## Tantangan
+1. Rancang uncertainty report untuk dua sensors.
+2. Rancang experiment detector comparison dengan unit/split/metric/interval.
+3. Pilih summary/visualization untuk skewed distribution dan outliers.
 
-Tulis laporan dua halaman: pertanyaan, data-generating process, asumsi, metode, hasil, visualisasi, dan batasan. Jangan hanya menampilkan angka.
+## Level 5 — Debug / Workplace
+
+Selesaikan empat [broken cases](../07_DEBUGGING/broken_cases.md). Wajib mencakup shape/unit, leakage/dependence, numerical issue, dan causal overclaim.

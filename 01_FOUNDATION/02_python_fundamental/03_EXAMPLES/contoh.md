@@ -1,7 +1,7 @@
 # Panduan Penulisan Kode — Level 1: Python Fundamental
 
 > File ini menjelaskan pola penulisan kode yang benar untuk Level 1.
-> Dibaca bersamaan dengan `01_python_fundamental.ipynb` — jalankan cell, baca panduan ini, lalu pahami kenapa penulisannya seperti itu.
+> Gunakan sebagai reference setelah lesson terkait. Untuk praktik, buka [`04_LABS/praktikum.ipynb`](../04_LABS/praktikum.ipynb), prediksi output, jalankan cell, lalu kembali ke bagian reference yang diperlukan.
 
 ---
 
@@ -1195,4 +1195,4 @@ for i in range(1, 31):
 
 ---
 
-**Lanjut:** Buka `01_python_fundamental.ipynb` → jalankan cell pertama. Baca panduan ini bersamaan dengan kode yang kamu jalankan.
+**Lanjut:** kembali ke [chapter map](../README.md) atau buka [`04_LABS/praktikum.ipynb`](../04_LABS/praktikum.ipynb). Jangan membaca reference ini secara linear bila lesson belum dipahami.

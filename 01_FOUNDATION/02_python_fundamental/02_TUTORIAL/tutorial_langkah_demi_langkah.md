@@ -1,4 +1,4 @@
-# Tutorial Penyelesaian — Level 01 Python Fundamental
+# Tutorial Problem Solving — Python Fundamental
 
 Kerjakan `typing_practice.ipynb` dahulu. Untuk setiap soal, ketik kode tanpa melihat solusi, jalankan, bandingkan output, lalu jelaskan fungsi setiap baris.
 

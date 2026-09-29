@@ -1,4 +1,4 @@
-# Teori Mendalam — Level 00: Matematika, Statistik, dan Eksperimen
+# Synthesis — Math, Statistics, dan Experiment
 
 ## 1. Bahasa untuk menyatakan data
 

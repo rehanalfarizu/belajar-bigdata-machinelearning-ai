@@ -1,4 +1,4 @@
-# Teori Mendalam — Level 01: Python Fundamental
+# Synthesis — Python Fundamental
 
 ## 1. Dari source code ke eksekusi
 
