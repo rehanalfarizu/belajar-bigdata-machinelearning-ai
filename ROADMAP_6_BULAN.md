@@ -59,17 +59,72 @@ Weeks 22–26  INTELLIGENT/PROFESSIONAL→ Final Capstone
 | 6 | uncertainty mini-project | report and broken cases | Level 4 design | [math checkpoint](01_FOUNDATION/04_math_statistics/09_CHECKPOINT/CHECKPOINT.md) |
 | 7 | integration | finish [Month 1 Sensor Simulator](06_PROJECTS/month_01_python_engineering/README.md) | demo + reasoning defense | Phase 1 gate |
 
-## Weeks 5–26 — Chapter map
+## Week 5 — Data Trust, Pandas, dan SQL
+
+| Day | Theory/tutorial | Praktikum | Problem solving/debugging | Deliverable/checkpoint |
+|---|---|---|---|---|
+| 1 | observation, variable, grain, schema, keys | inspect/profile messy raw CSV | wrong dtype, duplicate key | data dictionary + predictions |
+| 2 | missing, dirty strings, category, outlier | quality contract | silent drop/outlier policy | validation rules |
+| 3 | units, timestamp, timezone | clean/quarantine/curate | unit/timezone failure | reconciliation evidence |
+| 4 | NumPy/Pandas execution | vectorization/alignment | index/dtype/copy issue | transformation comparison |
+| 5 | relational model, JOIN | DuckDB key/cardinality lab | join explosion/double count | safe SQL queries |
+| 6 | group/window/CTE, EDA | evidence-backed charts | misleading aggregate/chart | three bounded insights |
+| 7 | review | Trusted Sensor Analysis | requirement change | [chapter checkpoint](02_DATA_AND_MACHINE_LEARNING/01_data_analysis_sql/09_CHECKPOINT/CHECKPOINT.md) |
+
+## Week 6 — Data Mining
+
+| Day | Theory/tutorial | Praktikum | Problem solving/debugging | Deliverable/checkpoint |
+|---|---|---|---|---|
+| 1 | KDD/CRISP-DM | define discovery objective | pattern vs decision | experiment contract |
+| 2 | support/confidence/lift | manual association rules | base-rate trap | manual/code reconciliation |
+| 3 | Apriori/FP-Growth | threshold sweep | candidate explosion | rule stability table |
+| 4 | K-Means/hierarchical/DBSCAN | raw vs scaled clustering | unstable labels/seed | cluster interpretation |
+| 5 | outlier/PCA | outlier/reduction experiment | error vs rare signal | evidence classification |
+| 6 | sequential/multiple testing | transition/holdout | order/spurious discovery | confirmation result |
+| 7 | review | Pattern Discovery project | causal-claim challenge | [chapter checkpoint](02_DATA_AND_MACHINE_LEARNING/02_data_mining/09_CHECKPOINT/CHECKPOINT.md) |
+
+## Week 7 — Machine Learning Fundamental
+
+| Day | Theory/tutorial | Praktikum | Problem solving/debugging | Deliverable/checkpoint |
+|---|---|---|---|---|
+| 1 | target, split, baseline | random/group/time split | target leakage | prediction contract |
+| 2 | linear/logistic | manual/from-scratch/library | residual/threshold | regression evidence |
+| 3 | KNN/NB/SVM | scaling comparison | distance/prior/convergence | algorithm trade-off |
+| 4 | tree/forest/K-Means/PCA | tree vs distance models | overfit/cluster claim | comparison |
+| 5 | metrics/CV | confusion and regression metrics | wrong metric/fold | metric-cost rationale |
+| 6 | bias/variance/error analysis | learning/error slices | contamination/imbalance | corrective decision |
+| 7 | review | Honest Tabular Baseline | requirement change | [chapter checkpoint](02_DATA_AND_MACHINE_LEARNING/03_ml_fundamental/09_CHECKPOINT/CHECKPOINT.md) |
+
+## Week 8 — Advanced ML dan Time Series
+
+| Day | Theory/tutorial | Praktikum | Problem solving/debugging | Deliverable/checkpoint |
+|---|---|---|---|---|
+| 1 | features/selection/regularization | fold-local ablation | selection leakage | feature decision |
+| 2 | ensemble/boosting/search | budgeted comparison | validation overfit | search log |
+| 3 | calibration/threshold/imbalance | cost-threshold lab | test/SMOTE leak | policy table |
+| 4 | constraints/uncertainty | model decision matrix | accuracy-only choice | advanced ML checkpoint |
+| 5 | time/order/lag/rolling | future leakage experiment | random split | source-time evidence |
+| 6 | forecast/rolling validation | naive vs candidate | drift/interval failure | rolling report |
+| 7 | review | cost-aware + forecast projects | design defense | [time-series checkpoint](02_DATA_AND_MACHINE_LEARNING/05_time_series/09_CHECKPOINT/CHECKPOINT.md) |
+
+## Week 9 — Deep Learning dan Month 2 Integration
+
+| Day | Theory/tutorial | Praktikum | Problem solving/debugging | Deliverable/checkpoint |
+|---|---|---|---|---|
+| 1 | neuron/activation/loss | manual forward/loss | shape/encoding | hand calculation |
+| 2 | gradient/backprop/NumPy | finite difference/update | sign/rate failure | gradient evidence |
+| 3 | TensorFlow autograd/loop | tiny local training loop | missing gradient | runnable loop |
+| 4 | Dataset/batch/checkpoint | reload equivalence | split/state failure | recovery evidence |
+| 5 | overfit/regularization/curves | capacity experiment | train-validation gap | curve diagnosis |
+| 6 | CNN/sequence/attention bridge | modality experiment | baseline/latency | model card |
+| 7 | integration | finish [Month 2 Data & ML System](06_PROJECTS/month_02_data_ml_system/README.md) | defense + limitation | Phase 2 gate |
+
+## Weeks 10–26 — Chapter map
 
 Phase berikutnya tetap pada scope sebelumnya; detail hariannya akan dikembangkan saat phase tersebut diaudit.
 
 | Week | Fokus | Chapter/project |
 |---|---|---|
-| 5 | Data Analysis & SQL I | [Data Analysis & SQL](02_DATA_AND_MACHINE_LEARNING/01_data_analysis_sql/README.md) |
-| 6 | Data Analysis & SQL II; Data Mining | [Data Mining](02_DATA_AND_MACHINE_LEARNING/02_data_mining/README.md) |
-| 7 | ML Fundamental | [ML Fundamental](02_DATA_AND_MACHINE_LEARNING/03_ml_fundamental/README.md) |
-| 8 | ML Advanced; Time Series | [ML Advanced](02_DATA_AND_MACHINE_LEARNING/04_ml_advanced/README.md), [Time Series](02_DATA_AND_MACHINE_LEARNING/05_time_series/README.md) |
-| 9 | Deep Learning + integration | [Deep Learning](02_DATA_AND_MACHINE_LEARNING/06_deep_learning/README.md), [Month 2](06_PROJECTS/month_02_data_ml_system/README.md) |
 | 10 | Computer Vision | [Computer Vision](03_AI_AND_DATA_SYSTEMS/01_computer_vision/README.md) |
 | 11 | NLP & Transformers | [NLP & Transformers](03_AI_AND_DATA_SYSTEMS/02_nlp_transformers/README.md) |
 | 12 | Big Data & Data Engineering | [Big Data](03_AI_AND_DATA_SYSTEMS/03_big_data_data_engineering/README.md) |

@@ -2,6 +2,7 @@
 # TensorFlow yang dipakai chapter 05 belum kompatibel dengan NumPy 2.x di banyak platform.
 numpy>=1.26,<2
 pandas>=2.1,<3
+duckdb>=1.0,<2
 scipy>=1.11,<2
 scikit-learn>=1.3,<2
 matplotlib>=3.8,<4

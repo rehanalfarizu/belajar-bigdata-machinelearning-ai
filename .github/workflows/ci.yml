@@ -1,0 +1,41 @@
+name: lightweight-quality
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  audit-and-lightweight-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Repository audit
+        run: python tools/audit_repository.py
+      - name: Phase 1 lightweight tests
+        run: |
+          python -m unittest discover -s 01_FOUNDATION/03_python_professional/04_LABS -p 'test_*.py' -v
+          python -m unittest discover -s 01_FOUNDATION/04_math_statistics/04_LABS -p 'test_*.py' -v
+      - name: Phase 2 lightweight tests
+        run: |
+          python -m unittest discover -s 02_DATA_AND_MACHINE_LEARNING/01_data_analysis_sql/04_LABS -p 'test_*.py' -v
+          python -m unittest discover -s 02_DATA_AND_MACHINE_LEARNING/02_data_mining/04_LABS -p 'test_*.py' -v
+          python -m unittest discover -s 02_DATA_AND_MACHINE_LEARNING/03_ml_fundamental/04_LABS -p 'test_*.py' -v
+          python -m unittest discover -s 02_DATA_AND_MACHINE_LEARNING/04_ml_advanced/04_LABS -p 'test_*.py' -v
+          python -m unittest discover -s 02_DATA_AND_MACHINE_LEARNING/05_time_series/04_LABS -p 'test_*.py' -v
+          python -m unittest discover -s 02_DATA_AND_MACHINE_LEARNING/06_deep_learning/04_LABS -p 'test_*.py' -v
+
+  notebook-static-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate notebook JSON and code syntax
+        run: python tools/audit_repository.py
+
+# Heavy dependency, notebook execution, downloads, TensorFlow, and GPU jobs are
+# intentionally excluded from default CI. Run them in chapter-specific environments.

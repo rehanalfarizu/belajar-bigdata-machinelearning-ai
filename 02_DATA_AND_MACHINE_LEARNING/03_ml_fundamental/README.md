@@ -1,17 +1,29 @@
 # Mulai dari sini — Machine Learning Fundamental
 
-Hari pertama: baca [konsep dasar](01_TEORI/konsep_dasar.md), lanjutkan [tutorial](02_TUTORIAL/tutorial_langkah_demi_langkah.md), jalankan notebook di `04_LABS`, lalu bangun baseline sendiri.
+## Pertanyaan utama
 
-Jangan membuka [solution](99_SOLUTIONS/solusi_dan_teori_lengkap.md) sebelum mencoba minimal 20–30 menit.
+Apakah model belajar signal yang tersedia pada data baru dan mengalahkan baseline pada evaluation yang sah?
 
-## Target dan gate
+## Prerequisite dan effort
 
-Kuasai supervised/unsupervised learning, split, baseline, regression, classification, clustering, metrics, bias/variance, dan leakage. Lulus bila test set tidak dipakai untuk tuning dan error analysis mengarah ke keputusan berikutnya.
+Lulus Data Mining serta Phase 1 Math. Estimasi 20–28 jam.
 
-Mini-project: model tabular dengan baseline dan error slices. Bukti bulan: [Month 2 Capstone](../../06_PROJECTS/month_02_data_ml_system/README.md).
+## Lesson map
+
+1. [Problem, split, baseline](01_TEORI/01_problem_split_baseline.md)
+2. [Linear/logistic regression](01_TEORI/02_linear_logistic_regression.md)
+3. [KNN, Naive Bayes, SVM](01_TEORI/03_knn_naive_bayes_svm.md)
+4. [Tree, forest, K-Means, PCA](01_TEORI/04_tree_forest_kmeans_pca.md)
+5. [Metrics dan cross-validation](01_TEORI/05_metrics_cross_validation.md)
+6. [Bias/variance dan error analysis](01_TEORI/06_bias_variance_error_analysis.md)
+
+## Practice path
+
+[Split/baseline/leakage](04_LABS/01_split_baseline_leakage.md) → [from-scratch→sklearn](04_LABS/02_from_scratch_to_sklearn.md) → [metrics/error analysis](04_LABS/03_metrics_error_analysis.md) → [problems](06_PROBLEM_SOLVING/problems.md) → [broken cases](07_DEBUGGING/broken_cases.md) → [project](08_PROJECT/README.md) → [checkpoint](09_CHECKPOINT/CHECKPOINT.md).
+
+Notebook lama tetap laboratory/reference. Lulus bila test tidak dipakai tuning, preprocessing fold-local, metric terkait cost, dan error slice menghasilkan keputusan.
 
 ## Navigasi
 
 - Previous: [02 Data Mining](../02_data_mining/README.md)
-- Current: **03 ML Fundamental**
 - Next: [04 ML Advanced](../04_ml_advanced/README.md)

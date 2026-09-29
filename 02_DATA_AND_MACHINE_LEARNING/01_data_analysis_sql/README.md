@@ -1,17 +1,33 @@
 # Mulai dari sini — Data Analysis & SQL
 
-Hari pertama: baca [konsep dasar](01_TEORI/konsep_dasar.md), ikuti [tutorial](02_TUTORIAL/tutorial_langkah_demi_langkah.md), jalankan notebook di `04_LABS`, lalu kerjakan [exercise](05_EXERCISES/exercises.md).
+## Pertanyaan utama
 
-Jangan membuka [solution](99_SOLUTIONS/solusi_dan_teori_lengkap.md) sebelum mencoba minimal 20–30 menit.
+Apa sebenarnya bentuk data ini dan apakah data ini dapat dipercaya? Chapter membangun jalur raw→inspect→profile→clean→validate→curated→SQL→analysis→report.
 
-## Target dan gate
+## Prerequisite dan effort
 
-Kuasai grain, key, join, SQL, NumPy/Pandas, cleaning, EDA, visualisasi, dan data-quality checks. Lulus bila pipeline dapat diulang dan setiap insight menunjuk evidence serta batasnya.
+Lulus Phase 1. Estimasi 16–22 jam. Gunakan Pandas/NumPy untuk table work, DuckDB untuk analytical SQL, dan script/test untuk pipeline reusable.
 
-Mini-project: audit dan analisis tiga tabel. Bukti bulan: [Month 2 Capstone](../../06_PROJECTS/month_02_data_ml_system/README.md).
+## Lesson map
+
+1. [Shape, grain, schema, key](01_TEORI/01_data_shape_grain_keys.md)
+2. [Data-quality contract](01_TEORI/02_data_quality_contract.md)
+3. [String, unit, timestamp, timezone](01_TEORI/03_time_units_categories.md)
+4. [NumPy/Pandas execution](01_TEORI/04_numpy_pandas_execution.md)
+5. [SQL JOIN/aggregation/window](01_TEORI/05_sql_joins_aggregation.md)
+6. [EDA/visualization/validation](01_TEORI/06_eda_visualization_validation.md)
+
+Materi lama [teori mendalam](01_TEORI/teori_mendalam.md) dan [contoh](03_EXAMPLES/contoh.md) menjadi reference setelah lesson.
+
+## Practice path
+
+[Profile messy data](04_LABS/01_profile_messy_data.md) → [clean/validate/curate](04_LABS/02_clean_validate_curate.md) → [DuckDB join/window](04_LABS/03_duckdb_join_window.md) → [exercises](05_EXERCISES/exercises.md) → [problems](06_PROBLEM_SOLVING/problems.md) → [broken cases](07_DEBUGGING/broken_cases.md) → [project](08_PROJECT/README.md) → [checkpoint](09_CHECKPOINT/CHECKPOINT.md).
+
+## Workplace dan gate
+
+Dipakai pada analytics, data engineering, data quality, dan feature pipelines. Lulus bila dapat mendefinisikan grain/key/schema, menjaga raw, reconcile cleaning/join, menulis SQL, dan membatasi insight dengan evidence.
 
 ## Navigasi
 
 - Previous: [04 Math & Statistics](../../01_FOUNDATION/04_math_statistics/README.md)
-- Current: **01 Data Analysis & SQL**
 - Next: [02 Data Mining](../02_data_mining/README.md)

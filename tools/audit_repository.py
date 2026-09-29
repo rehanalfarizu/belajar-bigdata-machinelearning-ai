@@ -65,6 +65,14 @@ PHASE_ONE_LAB_COUNTS = {
     "03_python_professional": 13,
     "04_math_statistics": 11,
 }
+PHASE_TWO_LAB_COUNTS = {
+    "01_data_analysis_sql": 3,
+    "02_data_mining": 2,
+    "03_ml_fundamental": 3,
+    "04_ml_advanced": 2,
+    "05_time_series": 2,
+    "06_deep_learning": 2,
+}
 
 
 def markdown_issues() -> list[str]:
@@ -157,31 +165,74 @@ def generated_artifact_issues() -> list[str]:
 
 def lab_contract_issues() -> list[str]:
     issues: list[str] = []
-    foundation = ROOT / "01_FOUNDATION"
-    for chapter_name, expected_count in PHASE_ONE_LAB_COUNTS.items():
-        lab_dir = foundation / chapter_name / "04_LABS"
-        guides = sorted(lab_dir.glob("[0-9][0-9]_*.md"))
-        if len(guides) != expected_count:
-            issues.append(
-                f"{chapter_name}: expected {expected_count} lab guides, "
-                f"found {len(guides)}"
-            )
-        for guide in guides:
-            content = guide.read_text(encoding="utf-8")
-            positions = [content.find(section) for section in REQUIRED_LAB_SECTIONS]
-            missing = [
-                section
-                for section, position in zip(REQUIRED_LAB_SECTIONS, positions)
-                if position == -1
-            ]
-            if missing:
+    phase_contracts = (
+        ("01_FOUNDATION", PHASE_ONE_LAB_COUNTS),
+        ("02_DATA_AND_MACHINE_LEARNING", PHASE_TWO_LAB_COUNTS),
+    )
+    for phase_name, chapter_counts in phase_contracts:
+        phase = ROOT / phase_name
+        for chapter_name, expected_count in chapter_counts.items():
+            lab_dir = phase / chapter_name / "04_LABS"
+            guides = sorted(lab_dir.glob("[0-9][0-9]_*.md"))
+            if len(guides) != expected_count:
                 issues.append(
-                    f"{guide.relative_to(ROOT)} missing: {', '.join(missing)}"
+                    f"{chapter_name}: expected {expected_count} lab guides, "
+                    f"found {len(guides)}"
                 )
-            elif positions != sorted(positions):
-                issues.append(
-                    f"{guide.relative_to(ROOT)} has lab sections out of order"
-                )
+            for guide in guides:
+                content = guide.read_text(encoding="utf-8")
+                positions = [content.find(section) for section in REQUIRED_LAB_SECTIONS]
+                missing = [
+                    section
+                    for section, position in zip(REQUIRED_LAB_SECTIONS, positions)
+                    if position == -1
+                ]
+                if missing:
+                    issues.append(
+                        f"{guide.relative_to(ROOT)} missing: {', '.join(missing)}"
+                    )
+                elif positions != sorted(positions):
+                    issues.append(
+                        f"{guide.relative_to(ROOT)} has lab sections out of order"
+                    )
+    return issues
+
+
+def phase_two_contract_issues() -> list[str]:
+    issues: list[str] = []
+    phase = ROOT / "02_DATA_AND_MACHINE_LEARNING"
+    required_chapter_dirs = (
+        "01_TEORI",
+        "04_LABS",
+        "05_EXERCISES",
+        "06_PROBLEM_SOLVING",
+        "07_DEBUGGING",
+        "08_PROJECT",
+        "09_CHECKPOINT",
+    )
+    for chapter_name in PHASE_TWO_LAB_COUNTS:
+        chapter = phase / chapter_name
+        for directory in required_chapter_dirs:
+            if not (chapter / directory).is_dir():
+                issues.append(f"{chapter_name}: missing {directory}")
+        lesson_count = len(list((chapter / "01_TEORI").glob("[0-9][0-9]_*.md")))
+        if lesson_count < 4:
+            issues.append(f"{chapter_name}: only {lesson_count} sequential lessons")
+
+    month_two = ROOT / "06_PROJECTS/month_02_data_ml_system/README.md"
+    if month_two.exists():
+        milestones = len(re.findall(r"^## M\d+ ", month_two.read_text(encoding="utf-8"), re.M))
+        if milestones != 10:
+            issues.append(f"Month 2 project: expected 10 milestones, found {milestones}")
+
+    for relative in (
+        "07_PROBLEM_SOLVING/data/problems.md",
+        "07_PROBLEM_SOLVING/machine_learning/problems.md",
+    ):
+        content = (ROOT / relative).read_text(encoding="utf-8")
+        for level in range(1, 6):
+            if f"## Level {level}" not in content:
+                issues.append(f"{relative}: missing Level {level}")
     return issues
 
 
@@ -232,6 +283,7 @@ def main() -> int:
         "notebook": notebook_issues(),
         "python": python_issues(),
         "lab contract": lab_contract_issues(),
+        "phase 2 contract": phase_two_contract_issues(),
         "artifact": generated_artifact_issues(),
     }
     total = sum(len(issues) for issues in issue_groups.values())

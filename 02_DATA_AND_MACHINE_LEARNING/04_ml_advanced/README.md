@@ -1,17 +1,28 @@
 # Mulai dari sini — Machine Learning Advanced
 
-Hari pertama: baca [konsep dasar](01_TEORI/konsep_dasar.md), ikuti [tutorial](02_TUTORIAL/tutorial_langkah_demi_langkah.md), lalu jalankan lab dan [exercise](05_EXERCISES/exercises.md) dengan experiment log.
+## Pertanyaan utama
 
-Jangan membuka [solution](99_SOLUTIONS/solusi_dan_teori_lengkap.md) sebelum mencoba minimal 20–30 menit.
+Model mana yang layak dioperasikan di bawah cost, latency, memory, uncertainty, dan maintainability—bukan sekadar accuracy tertinggi?
 
-## Target dan gate
+## Prerequisite dan effort
 
-Kuasai pipeline, cross-validation, tuning, ensemble, imbalance, calibration, explainability, dan uncertainty. Lulus bila setiap peningkatan dibandingkan dengan baseline pada split yang sah dan disertai limitation.
+Lulus ML Fundamental. Estimasi 16–22 jam.
 
-Mini-project: model calibrated dengan threshold berbasis cost. Bukti bulan: [Month 2 Capstone](../../06_PROJECTS/month_02_data_ml_system/README.md).
+## Lesson map
 
-## Navigasi
+1. [Features, selection, regularization](01_TEORI/01_features_selection_regularization.md)
+2. [Ensemble, boosting, search](01_TEORI/02_ensemble_boosting_search.md)
+3. [Calibration, threshold, imbalance](01_TEORI/03_calibration_threshold_imbalance.md)
+4. [Interpretability dan uncertainty](01_TEORI/04_interpretability_uncertainty.md)
+5. [Temporal validation/model comparison](01_TEORI/05_temporal_model_comparison.md)
+
+## Practice path
+
+[Calibration/cost threshold](04_LABS/01_calibration_cost_threshold.md) → [comparison/constraints](04_LABS/02_model_comparison_constraints.md) → [exercises](05_EXERCISES/exercises.md) → [problems](06_PROBLEM_SOLVING/problems.md) → [broken cases](07_DEBUGGING/broken_cases.md) → [project](08_PROJECT/README.md) → [checkpoint](09_CHECKPOINT/CHECKPOINT.md).
+
+## Gate dan navigasi
+
+Lulus bila preprocessing/resampling hanya train-fold, threshold dipilih dari validation/cost, dan model dibandingkan dengan baseline serta constraints.
 
 - Previous: [03 ML Fundamental](../03_ml_fundamental/README.md)
-- Current: **04 ML Advanced**
 - Next: [05 Time Series](../05_time_series/README.md)
